@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Drill</title>
+</head>
+<body>
+    <h1>Add New Drill</h1>
+    <form action="/add_drill" method="post">
+        <label for="num_players">Number of Players:</label><br>
+        <input type="number" id="num_players" name="num_players" min="0" max="20" value="0" required><br>
+
+        <label for="type_of_drill">Type of Drill:</label><br>
+        <select id="type_of_drill" name="type_of_drill" required>
+            <option value="Transition">Transition</option>
+            <option value="Offense">Offense</option>
+"add_drill.h<option value="Defense">Defense</option>
+            <option value="Individual">Individual</option>
+        </select><br>
+
+        <label for="court">Court:</label><br>
+        <select id="court" name="court" required>
+            <option value="Full Court">Full Court</option>
+            <option value="Half Court">Half Court</option>
+        </select><br>
+
+        <label for="kind">Kind:</label><br>
+        <select id="kind" name="kind" required>
+            <option value="Transition Offense">Transition Offense</option>
+            <option value="Transition Defense">Transition Defense</option>
+            <option value="Man Offense">Man Offense</option>
+            <option value="Zone Offense">Zone Offense</option>
+            <option value="Press Break">Press Break</option>
+            <option value="Press">Press</option>
+            <option value="BLOB">BLOB</option>
+            <option value="SLOB">SLOB</option>
+            <option value="Specific">Specific</option>
+            <option value="other">Other (please specify)</option>
+        </select><br>
+        <input type="text" id="kind_other" name="kind_other" placeholder="Specify other kind" style="display: none;"><br>
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="goal">Goal:</label><br>
+        <input type="text" id="goal" name="goal" required><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="details">Details:</label><br>
+        <textarea id="details" name="details" required></textarea><br>
+
+        <label for="variations">Variations:</label><br>
+        <textarea id="variations" name="variations" required></textarea><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <p><a href="/">Back to Home</a></p>
+
+    <script>
+        document.getElementById('kind').addEventListener('change', function() {
+            var otherKindInput = document.getElementById('kind_other');
+            if (this.value === 'other') {
+                otherKindInput.style.display = 'block';
+                    otherKindInput.setAttribute('required', 'required');
+            } else {
+                otherKindInput.style.display = 'none';
+                otherKindInput.removeAttribute('required');
+            }
+        });
+    </script>
+</body>
+</html>
+~          
