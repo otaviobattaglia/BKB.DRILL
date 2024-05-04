@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Workout</title>
+</head>
+<body>
+    <h1>Add Workout</h1>
+    <form action="/add_workout" method="post">
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="drill_name">Select Drill:</label><br>
+        <select id="drill_name" name="drill_name" required>
+            {% for drill in drills %}
+                <option value="{{ drill[0] }}">{{ drill[1] }}</option>
+            {% endfor %}
+             </select><br>
+
+        <label for="drill_name">Select Drill:</label><br>
+        <select id="drill_name" name="drill_name" required>
+             {% for drill in drills %}
+                <option value="{{ drill[0] }}">{{ drill[1] }}</option>
+             {% endfor %}
+                </select><br>
+
+        <label for="drill_name">Select Drill:</label><br>
+        <select id="drill_name" name="drill_name" required>
+            {% for drill in drills %}
+            <option value="{{ drill[0] }}">{{ drill[1] }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>
